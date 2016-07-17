@@ -2,10 +2,10 @@
 An R script that calculates Elo ratings and generate a chart over time.
 
 ## Required R libraries
-* RColorBrewer
+* `RColorBrewer`
 
 ## Example of usage
-### Input
+### Input (`chess.csv`)
 ```
 Adam,win,Timothy
 Adam,win,Timothy
@@ -22,4 +22,4 @@ Timothy,win,Adam
 ```
 
 ### output
-[chess.csv](http://timgurto.com/chess.svg)
+[chess.svg](http://timgurto.com/chess.svg)
