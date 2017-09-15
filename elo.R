@@ -12,7 +12,7 @@ result = as.vector(t(data[2]))
 
 numEntries = length(result)
 
-players = union(player1, player2)
+players = sort(union(player1, player2))
 numPlayers = length(players)
 
 template = rep.int(1600, numEntries+1)
@@ -48,11 +48,22 @@ for (i in 2:(numEntries+1)){
 	}
 }
 
+# Remove leading 1600s from new players
+scores[1,"Timothy"]
+for (player in players){
+    for (i in 1:(numEntries-1)){
+        if (scores[i, player] == 1600 && scores[i+1, player] == 1600)
+            scores[i,player] = NA
+    }
+}
+
 lowest = 1600
 highest = 1600
 for (name in players) {
-	lowest = min(lowest, min(scores[name]))
-	highest = max(highest, max(scores[name]))
+        tempScores = scores[name]
+        tempScores[is.na(tempScores)] = 1600
+        lowest = min(lowest, min(tempScores[name]))
+        highest = max(highest, max(tempScores[name]))
 }
 
 plot(
