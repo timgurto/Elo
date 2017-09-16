@@ -2,7 +2,7 @@ svg(filename="chess.svg", width=8, height=5, pointsize=10, bg="black")
 
 par(bg = "black")
 par(fg="#999999")
-par(mar=c(1, 3, 2, 4))
+par(mar=c(1, 3, 2, 8))
 
 data <- read.csv("chess.csv", head=FALSE)
 
@@ -95,13 +95,15 @@ for (name in players){
 	#lines(xl, predict(lo, xl), col=colors[i])
 	
 	currentScore = scores[numEntries+1, name]
+	roundedScore = round(currentScore, 0)
+	label = paste(roundedScore, " ", name)
 	axis(
 		4,
 		at=c(currentScore),
-		labels=c(round(currentScore, 0)),
+		labels=c(label),
 		col=colors[i], col.ticks=colors[i], col.axis = colors[i],
 		las=2
 	)
 }
 
-legend("topleft", legend=players, fill=colors, bg="black")
+#legend("topleft", legend=players, fill=colors, bg="black")
