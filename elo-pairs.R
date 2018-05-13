@@ -14,7 +14,10 @@ result = as.vector(t(data[3]))
 
 numEntries = length(result)
 
-players = sort(union(player1, player2))
+players = sort(
+    union(
+        union(player1, player2),
+        union(player3, player4)))
 numPlayers = length(players)
 
 template = rep.int(1600, numEntries+1)
