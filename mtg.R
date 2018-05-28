@@ -75,23 +75,41 @@ plot(
 	xaxt='n'
 )
 
-library("RColorBrewer")
-colors = brewer.pal(max(3, length(players)), "Set1")
+xFrom = 1:numEntries
+xTo = 2:(numEntries+1)
 
 i = 0
 for (name in players){
+
+    colors = c("#000000")
+    if (name == "Werewolf")
+        colors = c("#4DAF4A", "#E41A1C")
+    if (name == "Zombies")
+        colors = c("#377EB8", "#333333")
+    if (name == "Proliferate")
+        colors = c("#888888", "#E41A1C", "#377EB8")
+    if (name == "Mill")
+        colors = c("#377EB8")
+    if (name == "Humans")
+        colors = c("#FFFF99")
+    
 	i = i + 1
-	lines(
-		x=1:(numEntries+1),
-		y=t(scores[name]),
-		col=colors[i]
-	)
+    
+    yAll = t(scores[name])
+    yFrom = yAll[1:numEntries]
+    yTo = yAll[2:(numEntries+1)]
+    
+    segments(
+        xFrom, yFrom, xTo, yTo,
+        col=colors,
+        lwd=2
+    )
 	
 	#xData = 1:(numEntries+1)
 	#yData = (apply(scores[name], 1, function(x) x))
 	#lo = loess(yData~xData)
 	#xl <- seq(1, numEntries+1, 0.1)
-	#lines(xl, predict(lo, xl), col=colors[i])
+	#lines(xl, predict(lo, xl), col=colors)
 	
 	currentScore = scores[numEntries+1, name]
 	roundedScore = round(currentScore, 0)
@@ -100,12 +118,10 @@ for (name in players){
 		4,
 		at=c(currentScore),
 		labels=c(label),
-		col=colors[i], col.ticks=colors[i], col.axis = colors[i],
+		col=colors[1], col.ticks=colors[1], col.axis = colors[1],
 		las=2
 	)
 }
-
-#legend("topleft", legend=players, fill=colors, bg="black")
 
 smallestGap = 10000
 s1 = ""

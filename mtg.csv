@@ -51,3 +51,16 @@ Zombies,win,Proliferate
 Proliferate,win,Zombies
 Zombies,win,Proliferate
 Zombies,win,Proliferate
+Proliferate,win,Zombies
+Proliferate,win,Zombies
+Zombies,win,Proliferate
+Werewolf,win,Zombies
+Zombies,win,Werewolf
+Werewolf,win,Zombies
+Werewolf,win,Zombies
+Humans,win,Mill
+Humans,win,Mill
+Humans,win,Mill
+Humans,win,Proliferate
+Proliferate,win,Humans
+Proliferate,win,Humans
