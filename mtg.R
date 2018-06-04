@@ -82,8 +82,8 @@ i = 0
 for (name in players){
 
     colors = c("#000000")
-    if (name == "Werewolf")
-        colors = c("#4DAF4A", "#E41A1C")
+    if (name == "Werewolves")
+        colors = c("#E41A1C", "#4DAF4A")
     if (name == "Zombies")
         colors = c("#377EB8", "#333333")
     if (name == "Proliferate")
@@ -92,6 +92,8 @@ for (name in players){
         colors = c("#377EB8")
     if (name == "Humans")
         colors = c("#FFFF99")
+    if (name == "Elfasaurus")
+        colors = c("#4DAF4A")
     
 	i = i + 1
     
