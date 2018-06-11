@@ -2,7 +2,7 @@ svg(filename="mtg.svg", width=8, height=5, pointsize=10, bg="black")
 
 par(bg = "black")
 par(fg="#999999")
-par(mar=c(1, 3, 2, 8))
+par(mar=c(1, 3, 2, 9))
 
 data <- read.csv("mtg.csv", head=FALSE)
 
@@ -85,15 +85,15 @@ for (name in players){
     if (name == "Werewolves")
         colors = c("#E41A1C", "#4DAF4A")
     if (name == "Zombies")
-        colors = c("#377EB8", "#333333")
+        colors = c("#333333", "#377EB8")
     if (name == "Proliferate")
-        colors = c("#888888", "#E41A1C", "#377EB8")
+        colors = c("#888888", "#E41A1C", "#333333", "#377EB8")
     if (name == "Mill")
         colors = c("#377EB8")
     if (name == "Humans")
         colors = c("#FFFF99")
-    if (name == "Elfasaurus")
-        colors = c("#4DAF4A")
+    if (name == "Elfdrazi")
+        colors = c("#4DAF4A", "#888888")
     
 	i = i + 1
     
