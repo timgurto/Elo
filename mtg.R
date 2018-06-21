@@ -75,41 +75,87 @@ plot(
 	xaxt='n'
 )
 
+# From: http://www.cookbook-r.com/Manipulating_data/Calculating_a_moving_average/
+# x: the vector
+# n: the number of samples
+# centered: if FALSE, then average current sample and previous (n-1) samples
+#           if TRUE, then average symmetrically in past and future. (If n is even, use one more sample from future.)
+movingAverage <- function(x, n=1, centered=FALSE) {
+    
+    if (centered) {
+        before <- floor  ((n-1)/2)
+        after  <- ceiling((n-1)/2)
+    } else {
+        before <- n-1
+        after  <- 0
+    }
+
+    # Track the sum and count of number of non-NA items
+    s     <- rep(0, length(x))
+    count <- rep(0, length(x))
+    
+    # Add the centered data 
+    new <- x
+    # Add to count list wherever there isn't a 
+    count <- count + !is.na(new)
+    # Now replace NA_s with 0_s and add to total
+    new[is.na(new)] <- 0
+    s <- s + new
+    
+    # Add the data from before
+    i <- 1
+    while (i <= before) {
+        # This is the vector with offset values to add
+        new   <- c(rep(NA, i), x[1:(length(x)-i)])
+
+        count <- count + !is.na(new)
+        new[is.na(new)] <- 0
+        s <- s + new
+        
+        i <- i+1
+    }
+
+    # Add the data from after
+    i <- 1
+    while (i <= after) {
+        # This is the vector with offset values to add
+        new   <- c(x[(i+1):length(x)], rep(NA, i))
+       
+        count <- count + !is.na(new)
+        new[is.na(new)] <- 0
+        s <- s + new
+        
+        i <- i+1
+    }
+    
+    # return sum divided by count
+    s/count
+}
+        
 xFrom = 1:numEntries
 xTo = 2:(numEntries+1)
 
 for (name in players){
 
     colors = c("#000000")
-    if (name == "Werewolves")
-        colors = c("#E41A1C", "#4DAF4A")
-    if (name == "Zombies")
-        colors = c("#333333", "#377EB8")
-    if (name == "Proliferate")
-        colors = c("#888888", "#E41A1C", "#333333", "#377EB8")
-    if (name == "Mill")
-        colors = c("#377EB8")
-    if (name == "Humans")
-        colors = c("#FFFF99")
-    if (name == "Elfdrazi")
-        colors = c("#4DAF4A")
-    if (name == "Garruk")
-        colors = c("#4DAF4A", "#333333")
+    if (name == "Werewolves")   colors = c("#E41A1C", "#4DAF4A")
+    if (name == "Zombies")      colors = c("#333333", "#377EB8")
+    if (name == "Proliferate")  colors = c("#888888", "#E41A1C", "#333333", "#377EB8")
+    if (name == "Mill")         colors = c("#377EB8")
+    if (name == "Humans")       colors = c("#FFFF99")
+    if (name == "Elfdrazi")     colors = c("#4DAF4A")
+    if (name == "Garruk")       colors = c("#4DAF4A", "#333333")
     
-    yAll = t(scores[name])
+    yAll = t(scores[name])    
+    yAll = movingAverage(yAll, 5) # This optional line changes the data to a moving average
+    
     yFrom = yAll[1:numEntries]
     yTo = yAll[2:(numEntries+1)]
-
-    #segments(
-    #    xFrom, yFrom, xTo, yTo,
-    #    col=colors,
-    #    lwd=2
-    #)
     
 	for (i in 1:(numEntries-1)){
         if (is.na(yFrom[i])) next
         if (is.na(yTo[i])) next
-        #if (yFrom[i] == yTo[i]) next # This line hides horizontal segments
+        #if (yFrom[i] == yTo[i]) next # This optional line hides horizontal segments
     
         colorIndex = i %% length(colors) + 1
         segments(xFrom[i], yFrom[i], xTo[i], yTo[i],
