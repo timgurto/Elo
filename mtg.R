@@ -93,7 +93,9 @@ for (name in players){
     if (name == "Humans")
         colors = c("#FFFF99")
     if (name == "Elfdrazi")
-        colors = c("#4DAF4A", "#888888")
+        colors = c("#4DAF4A")
+    if (name == "Garruk")
+        colors = c("#4DAF4A", "#333333")
     
 	i = i + 1
     
@@ -131,7 +133,6 @@ s2 = ""
 for (name1 in players){
     for (name2 in players){
         if (name1 >= name2) next
-        if (name1 == "Mill" & name2 == "Zombies") next
         score1 = scores[numEntries+1, name1]
         score2 = scores[numEntries+1, name2]
         diff = abs(score1 - score2)

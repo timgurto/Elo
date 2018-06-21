@@ -19,3 +19,5 @@ Timothy,Pa,win,Adam,Dominic
 Timothy,Dominic,win,Adam,Pa
 Pa,Dominic,win,Adam,Timothy
 Pa,Dominic,win,Adam,Timothy
+Pa,Adam,win,Dominic,Timothy
+Dominic,Timothy,win,Pa,Adam
