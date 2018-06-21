@@ -107,6 +107,10 @@ for (name in players){
     #)
     
 	for (i in 1:(numEntries-1)){
+        if (is.na(yFrom[i])) next
+        if (is.na(yTo[i])) next
+        #if (yFrom[i] == yTo[i]) next # This line hides horizontal segments
+    
         colorIndex = i %% length(colors) + 1
         segments(xFrom[i], yFrom[i], xTo[i], yTo[i],
             col=colors[colorIndex],
