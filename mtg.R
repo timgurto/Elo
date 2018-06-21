@@ -78,7 +78,6 @@ plot(
 xFrom = 1:numEntries
 xTo = 2:(numEntries+1)
 
-i = 0
 for (name in players){
 
     colors = c("#000000")
@@ -97,17 +96,22 @@ for (name in players){
     if (name == "Garruk")
         colors = c("#4DAF4A", "#333333")
     
-	i = i + 1
-    
     yAll = t(scores[name])
     yFrom = yAll[1:numEntries]
     yTo = yAll[2:(numEntries+1)]
+
+    #segments(
+    #    xFrom, yFrom, xTo, yTo,
+    #    col=colors,
+    #    lwd=2
+    #)
     
-    segments(
-        xFrom, yFrom, xTo, yTo,
-        col=colors,
-        lwd=2
-    )
+	for (i in 1:(numEntries-1)){
+        colorIndex = i %% length(colors) + 1
+        segments(xFrom[i], yFrom[i], xTo[i], yTo[i],
+            col=colors[colorIndex],
+            lwd=2)
+    }
 	
 	#xData = 1:(numEntries+1)
 	#yData = (apply(scores[name], 1, function(x) x))
