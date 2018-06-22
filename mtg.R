@@ -147,12 +147,12 @@ for (name in players){
     if (name == "Garruk")       colors = c("#4DAF4A", "#333333")
     
     yAll = t(scores[name])    
-    yAll = movingAverage(yAll, 5) # This optional line changes the data to a moving average
+    #yAll = movingAverage(yAll, 10, TRUE) # This optional line changes the data to a moving average
     
     yFrom = yAll[1:numEntries]
     yTo = yAll[2:(numEntries+1)]
     
-	for (i in 1:(numEntries-1)){
+	for (i in 1:(numEntries)){
         if (is.na(yFrom[i])) next
         if (is.na(yTo[i])) next
         #if (yFrom[i] == yTo[i]) next # This optional line hides horizontal segments
