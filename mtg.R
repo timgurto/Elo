@@ -158,8 +158,9 @@ movingAverage <- function(x, n=1, centered=FALSE) {
 # If last marker was something else, or no marker, then make it thin.
 getSegmentWidth <- function(name, i){
     # Loop through markers, until one higher than i is reached, then backtrack.  This will tell us the currently active marker.
-    for (j in 1:length(markerIndices)){
-        if (markerIndices[j] <= i)
+    numMarkers = length(markerIndices)
+    for (j in 1:(numMarkers+1)){
+        if (j <= numMarkers && markerIndices[j] <= i)
             next
 
         currentMarker = markerNames[j-1]
