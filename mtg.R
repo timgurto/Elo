@@ -13,21 +13,25 @@ result = as.vector(t(data[2]))
 numEntries = length(result)
 
 # Remember then remove asterisks on player names
-markers = c()
+markerIndices = c()
+markerNames = c()
 for (i in 1:(numEntries)){
     len = nchar(player1[i])
     if (substr(player1[i], len, len) == "*"){
-        markers = c(markers, i)
         player1[i] = substr(player1[i], 1, len-1)
+        
+        markerIndices = c(markerIndices, i)
+        markerNames = c(markerNames, player1[i])
     }
         
     len = nchar(player2[i])
     if (substr(player2[i], len, len) == "*"){
         player2[i] = substr(player2[i], 1, len-1)
-        markers = c(markers, i)
+        
+        markerIndices = c(markerIndices, i)
+        markerNames = c(markerNames, player2[i])
     }
 }
-markers
 
 players = sort(union(player1, player2))
 numPlayers = length(players)
@@ -148,13 +152,31 @@ movingAverage <- function(x, n=1, centered=FALSE) {
     # return sum divided by count
     s/count
 }
+
+# Segment width determined by markers:
+# If last marker was this name, make it thick.
+# If last marker was something else, or no marker, then make it thin.
+getSegmentWidth <- function(name, i){
+    # Loop through markers, until one higher than i is reached, then backtrack.  This will tell us the currently active marker.
+    for (j in 1:length(markerIndices)){
+        if (markerIndices[j] <= i)
+            next
+
+        currentMarker = markerNames[j-1]
+        if (j == 1 || currentMarker != name)
+            return(0.5)
+        else
+            return(2)
+    }
+    return(0.5)
+}
         
 xFrom = 1:numEntries
 xTo = 2:(numEntries+1)
 
 for (name in players){
 
-    abline(v=markers, lwd=0.2)
+    abline(v=markerIndices, lwd=0.2)
 
     colors = c("#000000")
     if (name == "Werewolves")   colors = c("#E41A1C", "#4DAF4A")
@@ -166,7 +188,7 @@ for (name in players){
     if (name == "Garruk")       colors = c("#4DAF4A", "#333333")
     
     yAll = t(scores[name])    
-    yAll = movingAverage(yAll, 10, TRUE) # This optional line changes the data to a moving average
+    #yAll = movingAverage(yAll, 10, TRUE) # This optional line changes the data to a moving average
     
     yFrom = yAll[1:numEntries]
     yTo = yAll[2:(numEntries+1)]
@@ -174,12 +196,14 @@ for (name in players){
 	for (i in 1:(numEntries)){
         if (is.na(yFrom[i])) next
         if (is.na(yTo[i])) next
-        #if (yFrom[i] == yTo[i]) next # This optional line hides horizontal segments
+        if (yFrom[i] == yTo[i]) next # This optional line hides horizontal segments
+
+        segmentWidth = getSegmentWidth(name, i)
     
         colorIndex = i %% length(colors) + 1
         segments(xFrom[i], yFrom[i], xTo[i], yTo[i],
             col=colors[colorIndex],
-            lwd=2)
+            lwd=segmentWidth)
     }
 	
 	#xData = 1:(numEntries+1)
