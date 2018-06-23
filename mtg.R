@@ -12,6 +12,23 @@ result = as.vector(t(data[2]))
 
 numEntries = length(result)
 
+# Remember then remove asterisks on player names
+markers = c()
+for (i in 1:(numEntries)){
+    len = nchar(player1[i])
+    if (substr(player1[i], len, len) == "*"){
+        markers = c(markers, i)
+        player1[i] = substr(player1[i], 1, len-1)
+    }
+        
+    len = nchar(player2[i])
+    if (substr(player2[i], len, len) == "*"){
+        player2[i] = substr(player2[i], 1, len-1)
+        markers = c(markers, i)
+    }
+}
+markers
+
 players = sort(union(player1, player2))
 numPlayers = length(players)
 
@@ -137,6 +154,8 @@ xTo = 2:(numEntries+1)
 
 for (name in players){
 
+    abline(v=markers, lwd=0.2)
+
     colors = c("#000000")
     if (name == "Werewolves")   colors = c("#E41A1C", "#4DAF4A")
     if (name == "Zombies")      colors = c("#333333", "#377EB8")
@@ -147,7 +166,7 @@ for (name in players){
     if (name == "Garruk")       colors = c("#4DAF4A", "#333333")
     
     yAll = t(scores[name])    
-    #yAll = movingAverage(yAll, 10, TRUE) # This optional line changes the data to a moving average
+    yAll = movingAverage(yAll, 10, TRUE) # This optional line changes the data to a moving average
     
     yFrom = yAll[1:numEntries]
     yTo = yAll[2:(numEntries+1)]
