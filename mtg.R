@@ -165,11 +165,11 @@ getSegmentWidth <- function(name, i){
 
         currentMarker = markerNames[j-1]
         if (j == 1 || currentMarker != name)
-            return(0.5)
+            return(0.3)
         else
-            return(2)
+            return(1.5)
     }
-    return(0.5)
+    return(0.3)
 }
         
 xFrom = 1:numEntries
