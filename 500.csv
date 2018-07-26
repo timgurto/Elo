@@ -25,3 +25,6 @@ Timothy,Pa,win,Dominic,Adam
 Frances,Pa,win,Dominic,Joe
 Dominic,Joe,win,Frances,Pa
 Frances,Pa,win,Dominic,Joe
+Dominic,Adam,win,Timothy,Pa
+Dominic,Timothy,win,Pa,Frances
+Pa,Adam,win,Dominic,Timothy
