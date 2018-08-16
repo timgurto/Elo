@@ -187,6 +187,7 @@ for (name in players){
     if (name == "Humans")       colors = c("#FFFF99")
     if (name == "Elfdrazi")     colors = c("#4DAF4A")
     if (name == "Garruk")       colors = c("#4DAF4A", "#333333")
+    if (name == "Myr")          colors = c("#888888", "#E41A1C")
     
     yAll = t(scores[name])    
     #yAll = movingAverage(yAll, 10, TRUE) # This optional line changes the data to a moving average

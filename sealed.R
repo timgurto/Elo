@@ -179,6 +179,8 @@ for (name in players){
 
     abline(v=markerIndices, lwd=0.2)
     
+    SOM="#AAAAAA"
+    
     THS="#13B521"
     BNG="#EA4B27"
     JOU="#8A54B7"
@@ -197,6 +199,7 @@ for (name in players){
     if (name == "Shadows/Eldritch")     colors = c(SOI,EMN)
     if (name == "Theros/Gods/Nyx")      colors = c(THS,BNG,JOU)
     if (name == "Amonkhet")             colors = c(AKH)
+    if (name == "Scars of Mirrodin")    colors = c(SOM)
     
     yAll = t(scores[name])    
     #yAll = movingAverage(yAll, 10, TRUE) # This optional line changes the data to a moving average

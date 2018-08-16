@@ -242,3 +242,8 @@ Werewolves,win,Zombies
 Werewolves,win,Zombies
 Zombies,win,Werewolves
 Zombies,win,Werewolves
+Myr*,win,Mill
+Mill,win,Myr
+Myr,win,Mill
+Myr*,win,Mill
+Myr,win,Mill
