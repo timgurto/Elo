@@ -187,7 +187,7 @@ for (name in players){
     if (name == "Humans")       colors = c("#FFFF99")
     if (name == "Elfdrazi")     colors = c("#4DAF4A")
     if (name == "Garruk")       colors = c("#4DAF4A", "#333333")
-    if (name == "Myr")          colors = c("#888888", "#E41A1C")
+    if (name == "Life Gain")    colors = c("#FFFF99", "#333333")
     
     yAll = t(scores[name])    
     #yAll = movingAverage(yAll, 10, TRUE) # This optional line changes the data to a moving average
@@ -242,6 +242,16 @@ for (name1 in players){
         }
     }
 }
+# paste("Next game should be between ", s1, " and ", s2, sep="")
 
-paste("Next game should be between ", s1, " and ", s2, sep="")
 
+"Current standings:"
+standings <- character(length(players))
+for (i in 1:length(players)){
+    name = players[i]
+    standings[i] <- paste(scores[numEntries+1,name], " ", name)
+}
+standings <- sort(standings, decreasing=TRUE)
+for (entry in standings){
+    print(entry)
+}

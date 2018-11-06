@@ -49,3 +49,14 @@ Timothy,Adam,win,Dominic,Pa
 Dominic,Pa,win,Timothy,Adam
 Pa,Timothy,win,Dominic,Adam
 Pa,Adam,win,Dominic,Timothy
+Pa,Timothy,win,Dominic,Frances
+Pa,Timothy,win,Dominic,Frances
+Dominic,Frances,win,Pa,Timothy
+Dominic,Pa,win,Timothy,Adam
+Timothy,Adam,win,Dominic,Pa
+Dominic,Pa,win,Timothy,Adam
+Pa,Timothy,win,Dominic,Adam
+Adam,Timothy,win,Dominic,Pa
+Dominic,Timothy,win,Pa,Adam
+Dominic,Timothy,win,Pa,Adam
+Dominic,Adam,win,Timothy,Pa

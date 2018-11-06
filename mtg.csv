@@ -242,8 +242,104 @@ Werewolves,win,Zombies
 Werewolves,win,Zombies
 Zombies,win,Werewolves
 Zombies,win,Werewolves
-Myr*,win,Mill
-Mill,win,Myr
-Myr,win,Mill
-Myr*,win,Mill
-Myr,win,Mill
+Life Gain*,win,Mill
+Mill,win,Life Gain
+Mill,win,Life Gain
+Life Gain,win,Mill
+Life Gain,win,Mill
+Life Gain,win,Elfdrazi
+Life Gain,win,Elfdrazi
+Elfdrazi,win,Life Gain
+Life Gain,win,Elfdrazi
+Elfdrazi,win,Life Gain
+Zombies,win,Life Gain
+Zombies,win,Life Gain
+Zombies,win,Life Gain
+Life Gain,win,Zombies
+Life Gain,win,Zombies
+Humans,win,Life Gain
+Humans,win,Life Gain
+Life Gain,win,Humans
+Humans,win,Life Gain
+Humans,win,Life Gain
+Life Gain,win,Proliferate
+Proliferate,win,Life Gain
+Proliferate,win,Life Gain
+Life Gain,win,Proliferate
+Proliferate,win,Life Gain
+Werewolves,win,Life Gain
+Life Gain,win,Werewolves
+Werewolves,win,Life Gain
+Werewolves,win,Life Gain
+Life Gain,win,Werewolves
+Life Gain,win,Garruk
+Life Gain,win,Garruk
+Life Gain,win,Garruk
+Life Gain,win,Garruk
+Life Gain,win,Garruk
+Elfdrazi*,win,Mill
+Mill,win,Elfdrazi
+Mill,win,Elfdrazi
+Zombies,win,Elfdrazi
+Elfdrazi,win,Zombies,
+Zombies,win,Elfdrazi
+Elfdrazi,win,Garruk
+Garruk,win,Elfdrazi
+Elfdrazi,win,Garruk
+Elfdrazi,win,Proliferate
+Proliferate,win,Elfdrazi
+Proliferate,win,Elfdrazi
+Humans,win,Elfdrazi
+Elfdrazi,win,Humans
+Elfdrazi,win,Humans
+Elfdrazi,win,Life Gain
+Elfdrazi,win,Life Gain
+Elfdrazi,win,Life Gain
+Werewolves,win,Elfdrazi
+Elfdrazi,win,Werewolves
+Elfdrazi,win,Werewolves
+Mill,win,Zombies*
+Mill,win,Zombies
+Zombies,win,Mill
+Garruk,win,Zombies
+Garruk,win,Zombies
+Zombies,win,Garruk
+Zombies,win,Life Gain
+Zombies,win,Life Gain
+Life Gain,win,Zombies
+Zombies,win,Humans
+Zombies,win,Humans
+Humans,win,Zombies
+Elfdrazi,win,Zombies
+Zombies,win,Elfdrazi
+Zombies,win,Elfdrazi
+Zombies,win,Proliferate
+Zombies,win,Proliferate
+Proliferate,win,Zombies
+Werewolves,win,Zombies
+Zombies,win,Werewolves
+Werewolves,win,Zombies
+Life Gain*,win,Mill
+Mill,win,Life Gain
+Mill,win,Life Gain
+Life Gain,win,Garruk
+Life Gain,win,Garruk
+Life Gain,win,Garruk
+Life Gain,win,Humans
+Life Gain,win,Humans
+Humans,win,Life Gain
+Elfdrazi,win,Life Gain
+Elfdrazi,win,Life Gain
+Life Gain,win,Elfdrazi
+Zombies,win,Life Gain
+Life Gain,win,Zombies
+Life Gain,win,Zombies
+Life Gain,win,Proliferate
+Proliferate,win,Life Gain
+Proliferate,win,Life Gain
+Werewolves,win,Life Gain
+Life Gain,win,Werewolves
+Life Gain,win,Werewolves
+Garruk,win,Mill*
+Garruk,win,Mill
+Garruk,win,Mill
